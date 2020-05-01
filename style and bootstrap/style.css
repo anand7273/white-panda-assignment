@@ -1,0 +1,72 @@
+body {
+  padding: 50px !important;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 100vh;
+}
+body.b1{
+  background: -webkit-linear-gradient(bottom,#c471f5,#fa71cd);
+  display: flex;
+  align-items: center;
+}
+
+body.b2{
+  background: -webkit-linear-gradient(45deg, #4158d0, #c850c0);
+  min-height: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.container{
+  background: #ffffff;
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px #000000;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+a {
+  color: #00B7FF;
+}
+
+table{
+  border-radius: 10px;
+  overflow: hidden;
+  border-collapse: collapse;
+  border: none;
+}
+th{
+  background: #36304a;
+  color: #ffffff;
+  font-weight: unset;
+}
+tr{
+  height: 60px;
+}
+table tbody tr {
+  height: 50px;
+}
+table, tr, td, th {
+  border: none;
+}
+tbody tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+#delete{
+  margin-left: 10px;
+}
+.mb-10{
+  margin-bottom:60px;
+}
+
+#add_car .row{
+  margin-bottom: 10px;
+}
+
+#confirmbook .row{
+  margin-bottom: 10px;
+}
+
+#links a{
+  margin-left: 10px;
+}

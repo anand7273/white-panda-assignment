@@ -1,0 +1,33 @@
+html
+  head
+    title= `${title}`
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+body.b1
+    div.container
+        h3.text-center.mb-5 Search Result
+
+        table(style='width:100%; text-align: center;', border='1', cellspacing="0", cellpadding="0")
+            thead
+                tr
+                    th Name
+                    th Vehicle Number
+                    th Model
+                    th Seating Capacity
+                    th Rent per day
+                    th Actions
+            tbody
+            if cars.length
+                each car, i in cars
+                    tr 
+                        td #{car.name}
+                        td #{car.vehicle_number}
+                        td #{car.model}
+                        td #{car.seat_cap}
+                        td ₹ #{car.rent}
+                        td
+                            a.btn.btn-outline-success.btn-sm(href="/bookcar/"+car._id) Book Now
+            else
+                tr
+                    td(colspan="6") No cars found.

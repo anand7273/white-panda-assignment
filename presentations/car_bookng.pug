@@ -1,0 +1,76 @@
+html
+  head
+    title= `${title}`
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+body.b2
+    div.container
+        h3.text-center.mb-10 Book Now
+
+        form#search.mb-10(name="search", method="post", action="#")
+          div.form-group
+            div.row.mb-10
+              div.col.col-lg-4
+                label(for="startdate") Start Date
+                input#startdate.form-control(type="date" name="startdate", required, readonly, value= session.startdate)
+              
+              div.col.col-lg-4
+                label(for="days") Days
+                input#days.form-control(type="number" name="days" placeholder="No. of days" min="1" max="100", required, readonly, value=session.dates.length)
+
+              div.col.col-lg-4
+                label(for="seats") Seating Capacity
+                input#seats.form-control(type="number" name="seats" placeholder="No. of seats" min="2" max="10", required, readonly, value=car.seat_cap)
+
+        table(style='width:100%; text-align: center;', border='1', cellspacing="0", cellpadding="0")
+            thead
+                tr
+                    th Name
+                    th Vehicle Number
+                    th Model
+                    th Seating Capacity
+                    th Rent per day
+                    th Total Rent
+            tbody
+                tr 
+                    td #{car.name}
+                    td #{car.vehicle_number}
+                    td #{car.model}
+                    td #{car.seat_cap}
+                    td ₹ #{car.rent}
+                    td.font-weight-bold.text-success ₹ #{car.rent*session.dates.length}
+              
+        
+        h5.mt-5 Personal Details:
+
+        form#confirmbook(name="confirmbook", method="post", action="/confirmbook")
+            div.form-group
+                div.row.justify-content-center
+                    div.col.col-lg-4
+                        label(for="name") Full Name :
+                        input#name.form-control(type="text" name="name", required)
+
+                div.row.justify-content-center
+                    div.col.col-lg-4
+                        label(for="id") ID Proof No :
+                        input#id.form-control(type="text" name="id", required)
+                
+                div.row.justify-content-center
+                    div.col.col-lg-4
+                        label(for="email") Email :
+                        input#email.form-control(type="text" name="email", required)
+
+                div.row.justify-content-center
+                    div.col.col-lg-4
+                        label(for="phone") Phone No. :
+                        input#phone.form-control(type="text" name="phone", required)
+                        p *Captcha and OTP validation will be added later
+
+                div.row.justify-content-center(style="margin-top: 30px; margin-bottom:0;")
+                    div.col.col-lg-2.text-center
+                        button#submit_book.btn.btn-outline-success.text-center(type="submit") Confirm Booking
+
+
+
+

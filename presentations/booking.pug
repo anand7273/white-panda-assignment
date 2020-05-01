@@ -1,0 +1,31 @@
+html
+  head
+    title= `${title}`
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+body.b1
+    div.container
+        h3.text-center.mb-5 All Bookings
+
+        table(style='width:100%; text-align: center;', border='1', cellspacing="0", cellpadding="0")
+            thead
+                tr
+                    th Booking ID
+                    th Booking Date
+                    th Booked For
+                    th Person's Name
+                    th Vehicle
+                    th Total Rent
+                    th Actions
+            tbody
+            each booking, i in bookings
+                tr 
+                    td #{booking._id}
+                    td #{booking.booking_date}
+                    td #{booking.booking_dates[0]}
+                    td #{booking.person_details.name}
+                    td #{booking.car_details.name}
+                    td ₹ #{booking.total_rent}
+                    td
+                        a.btn.btn-outline-primary.btn-sm(href="/viewbooking/"+booking._id) View

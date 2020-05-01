@@ -1,0 +1,31 @@
+html
+  head
+    title= `${title}`
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+body.b2
+    div.container
+        h3.text-center.mb-10 Search Cars to Rent
+
+        form#search(name="search", method="post", action="/search_result")
+          div.form-group
+            div.row.mb-10
+              div.col.col-lg-4
+                label(for="startdate") Start Date
+                input#startdate.form-control(type="date" name="startdate", required)
+              
+              div.col.col-lg-4
+                label(for="days") Days
+                input#days.form-control(type="number" name="days" placeholder="No. of days" min="1" max="100", required)
+
+              div.col.col-lg-4
+                label(for="seats") Seating Capacity
+                input#seats.form-control(type="number" name="seats" placeholder="No. of seats" min="2" max="10", required)
+
+            div.row.justify-content-center
+              div.col.col-lg-2.text-center
+                button#search_btn.btn.btn-outline-primary.text-center(type="submit") Search
+              
+
+

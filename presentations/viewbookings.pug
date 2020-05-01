@@ -1,0 +1,78 @@
+html
+  head
+    title= `${title}`
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+body.b2
+    div.container
+        h3.text-center.mb-10 Booking Details
+
+        div.row
+          p Booking ID: #{booking._id}
+        div.row
+          p Booking Date: #{booking.booking_date}
+
+        br
+
+        form#search.mb-10(name="search", method="post", action="#")
+          div.form-group
+            div.row.mb-10
+              div.col.col-lg-4
+                label(for="startdate") Start Date
+                input#startdate.form-control(type="date" name="startdate", required, readonly, value= sdate)
+              
+              div.col.col-lg-4
+                label(for="days") Days
+                input#days.form-control(type="number" name="days" placeholder="No. of days" min="1" max="100", required, readonly, value=booking.booking_dates.length)
+
+              div.col.col-lg-4
+                label(for="seats") Seating Capacity
+                input#seats.form-control(type="number" name="seats" placeholder="No. of seats" min="2" max="10", required, readonly, value=booking.car_details.seat_cap)
+
+        table(style='width:100%; text-align: center;', border='1', cellspacing="0", cellpadding="0")
+            thead
+                tr
+                    th Name
+                    th Vehicle Number
+                    th Model
+                    th Seating Capacity
+                    th Rent per day
+                    th Total Rent
+            tbody
+                tr 
+                    td #{booking.car_details.name}
+                    td #{booking.car_details.vehicle_number}
+                    td #{booking.car_details.model}
+                    td #{booking.car_details.seat_cap}
+                    td ₹ #{booking.car_details.rent}
+                    td.font-weight-bold.text-success ₹ #{booking.total_rent}
+              
+        
+        h5.mt-5 Personal Details:
+
+        form#confirmbook(name="confirmbook", method="post", action="#")
+            div.form-group
+                div.row.justify-content-center
+                    div.col.col-lg-4
+                        label(for="name") Full Name :
+                        input#name.form-control(type="text" name="name", required, readonly, value=booking.person_details.name)
+
+                div.row.justify-content-center
+                    div.col.col-lg-4
+                        label(for="id") ID Proof No :
+                        input#id.form-control(type="text" name="id", required, readonly, value=booking.person_details.id)
+                
+                div.row.justify-content-center
+                    div.col.col-lg-4
+                        label(for="email") Email :
+                        input#email.form-control(type="text" name="email", required, readonly, value=booking.person_details.email)
+
+                div.row.justify-content-center
+                    div.col.col-lg-4
+                        label(for="phone") Phone No. :
+                        input#phone.form-control(type="text" name="phone", required, readonly, value=booking.person_details.phone)
+
+
+
+

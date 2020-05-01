@@ -1,0 +1,40 @@
+html
+  head
+    title= `${title}`
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+body.b2
+    div.container
+        h3.text-center.mb-5 #{title}
+
+        form#add_car(name="addcar", method="post", action="/addcar")
+            div.form-group
+                div.row.justify-content-center
+                    div.col.col-lg-4
+                        label(for="name") Name :
+                        input#name.form-control(type="text" name="name", required)
+
+                div.row.justify-content-center
+                    div.col.col-lg-4
+                        label(for="model") Model :
+                        input#model.form-control(type="text" name="model", required)
+                
+                div.row.justify-content-center
+                    div.col.col-lg-4
+                        label(for="vehicleno") Vehicle No. :
+                        input#vehicleno.form-control(type="text" name="vehicleno", required)
+
+                div.row.justify-content-center
+                    div.col.col-lg-4
+                        label(for="capacity") Seating Capacity :
+                        input#capacity.form-control(type="text" name="capacity", required)
+
+                div.row.justify-content-center
+                    div.col.col-lg-4
+                        label(for="rent") Rent per day :
+                        input#rent.form-control(type="text" name="rent", required)
+
+                div.row.justify-content-center(style="margin-top: 30px; margin-bottom:0;")
+                    div.col.col-lg-2.text-center
+                        button#submit_car.btn.btn-outline-success.text-center(type="submit") Submit
